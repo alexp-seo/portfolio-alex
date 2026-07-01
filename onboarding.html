@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empecemos con tu web — Alex P. SEO</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --cream:#F6F1E7;
+    --navy:#1C2541;
+    --navy-soft:#33415C;
+    --gold:#B68A3C;
+    --line:#DCD3BF;
+    --white:#FFFFFF;
+    --green:#25D366;
+    --red:#c0392b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--navy);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  header{
+    background:var(--navy);
+    color:var(--cream);
+    text-align:center;
+    padding:32px 20px 24px;
+  }
+  header h1{
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:8px;
+  }
+  header p{
+    font-size:14px;
+    color:var(--line);
+    max-width:460px;
+    margin:0 auto;
+    line-height:1.6;
+  }
+  main{max-width:620px;margin:0 auto;padding:24px 16px 80px;}
+  .section{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:16px;
+  }
+  .section h2{
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--navy);
+    margin-bottom:4px;
+  }
+  .hint{
+    font-size:12px;
+    color:var(--navy-soft);
+    margin-bottom:14px;
+    line-height:1.5;
+  }
+  .field{margin-bottom:14px;}
+  .field:last-child{margin-bottom:0;}
+  label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    color:var(--navy-soft);
+    margin-bottom:5px;
+  }
+  input[type=text],input[type=email],input[type=tel],textarea,select{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-size:15px;
+    font-family:inherit;
+    background:var(--cream);
+    color:var(--navy);
+    -webkit-appearance:none;
+  }
+  input:focus,textarea:focus,select:focus{
+    outline:2px solid var(--gold);
+    outline-offset:1px;
+    background:var(--white);
+  }
+  textarea{min-height:72px;resize:vertical;}
+  .checks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .check-label{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:8px 11px;
+    font-size:13px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .check-label input{width:16px;height:16px;cursor:pointer;accent-color:var(--navy);}
+  .note{
+    font-size:12px;
+    color:var(--navy-soft);
+    background:var(--cream);
+    border:1px dashed var(--line);
+    border-radius:6px;
+    padding:9px 11px;
+    margin-top:10px;
+    line-height:1.5;
+  }
+  .btn-main{
+    display:block;
+    width:100%;
+    padding:16px;
+    background:var(--navy);
+    color:var(--cream);
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    letter-spacing:0.3px;
+    -webkit-appearance:none;
+  }
+  .btn-main:active{background:var(--navy-soft);}
+  .error-msg{
+    color:var(--red);
+    font-size:13px;
+    text-align:center;
+    margin-top:10px;
+    display:none;
+  }
+  .result{
+    display:none;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px;
+    margin-top:16px;
+  }
+  .result h2{
+    font-size:16px;
+    font-weight:800;
+    color:var(--navy);
+    margin-bottom:12px;
+  }
+  .result pre{
+    white-space:pre-wrap;
+    font-family:inherit;
+    font-size:12px;
+    line-height:1.7;
+    background:var(--cream);
+    border-radius:6px;
+    padding:14px;
+    border:1px solid var(--line);
+    margin-bottom:14px;
+    overflow-x:auto;
+  }
+  .btn-row{display:flex;gap:10px;margin-bottom:10px;}
+  .btn-wa,.btn-email{
+    flex:1;
+    padding:13px;
+    font-size:14px;
+    font-weight:700;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    -webkit-appearance:none;
+  }
+  .btn-wa{background:var(--green);color:#fff;}
+  .btn-email{background:var(--navy);color:var(--cream);}
+  .btn-copy{
+    width:100%;
+    padding:12px;
+    background:var(--white);
+    color:var(--navy);
+    border:1px solid var(--line);
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    -webkit-appearance:none;
+  }
+  .copy-ok{
+    text-align:center;
+    font-size:13px;
+    color:var(--gold);
+    margin-top:8px;
+    min-height:18px;
+  }
+  footer{
+    text-align:center;
+    padding:30px 20px;
+    font-size:12px;
+    color:var(--navy-soft);
+  }
+  footer a{color:var(--gold);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Empecemos con tu web</h1>
+  <p>Rellena este formulario con los datos de tu negocio. Al final podrás enviármelo directamente por WhatsApp o email.</p>
+</header>
+
+<main>
+
+  <!-- 1. NEGOCIO -->
+  <div class="section">
+    <h2>Tu negocio</h2>
+    <div class="field">
+      <label>Nombre del negocio *</label>
+      <input type="text" id="bizName" placeholder="Ej: Boutique Marta">
+    </div>
+    <div class="field">
+      <label>Tu nombre</label>
+      <input type="text" id="contactName">
+    </div>
+    <div class="field">
+      <label>Teléfono / WhatsApp</label>
+      <input type="tel" id="contactPhone">
+    </div>
+    <div class="field">
+      <label>Email de contacto</label>
+      <input type="email" id="contactEmail">
+    </div>
+  </div>
+
+  <!-- 2. DATOS LEGALES -->
+  <div class="section">
+    <h2>Datos legales</h2>
+    <p class="hint">Obligatorios para el aviso legal y la política de privacidad — exigidos por la RGPD en España.</p>
+    <div class="field">
+      <label>Nombre fiscal / razón social</label>
+      <input type="text" id="fiscalName" placeholder="Ej: Marta García García">
+    </div>
+    <div class="field">
+      <label>NIF / CIF</label>
+      <input type="text" id="fiscalNif" placeholder="Ej: 12345678A">
+    </div>
+    <div class="field">
+      <label>Dirección fiscal completa</label>
+      <input type="text" id="fiscalAddress" placeholder="Calle, número, CP, ciudad">
+    </div>
+  </div>
+
+  <!-- 3. LOCAL -->
+  <div class="section">
+    <h2>Tu local</h2>
+    <p class="hint">Aparecerá en la web y en Google Maps — cuanto más exacto, mejor para el SEO local.</p>
+    <div class="field">
+      <label>Dirección del local (de cara al público)</label>
+      <input type="text" id="address" placeholder="Ej: Av. Constitució 174, Castelldefels">
+    </div>
+    <div class="field">
+      <label>Horario de apertura</label>
+      <textarea id="hours" placeholder="Ej: Lun–Vie 10:00–14:00 y 17:00–20:30 · Sáb 10:00–14:00 · Dom cerrado"></textarea>
+    </div>
+    <div class="field">
+      <label>URL de tu web actual (si tienes una)</label>
+      <input type="text" id="currentWebsite" placeholder="Ej: www.minegocio.com — deja en blanco si no tienes">
+    </div>
+  </div>
+
+  <!-- 4. ACCESOS -->
+  <div class="section">
+    <h2>Accesos</h2>
+    <p class="hint">Marca lo que ya tienes. Si no sabes alguno, no te preocupes — lo gestionamos juntos.</p>
+    <div class="checks">
+      <label class="check-label"><input type="checkbox" id="accDomain"> Acceso al dominio</label>
+      <label class="check-label"><input type="checkbox" id="accHosting"> Acceso al hosting</label>
+      <label class="check-label"><input type="checkbox" id="accGBP"> Google Business Profile</label>
+      <label class="check-label"><input type="checkbox" id="accGA"> Analytics / Search Console</label>
+      <label class="check-label"><input type="checkbox" id="accSocial"> Redes sociales activas</label>
+    </div>
+    <div class="field">
+      <label>@usuario de tus redes sociales</label>
+      <input type="text" id="socialHandles" placeholder="Ej: Instagram @minegocio · Facebook /minegocio">
+    </div>
+    <div class="field">
+      <label>¿Dónde está el dominio / quién hizo la web actual?</label>
+      <textarea id="accNotes" placeholder="Ej: Dominio en GoDaddy, web hecha por una agencia en 2019..."></textarea>
+    </div>
+  </div>
+
+  <!-- 5. CONTENIDO -->
+  <div class="section">
+    <h2>Contenido</h2>
+    <p class="hint">Logo y fotos me los mandas por WhatsApp aparte — aquí solo confírmame qué tienes disponible.</p>
+    <div class="checks">
+      <label class="check-label"><input type="checkbox" id="conLogo"> Logo en buena calidad</label>
+      <label class="check-label"><input type="checkbox" id="conPhotos"> Fotos del local/productos</label>
+      <label class="check-label"><input type="checkbox" id="conTexts"> Textos que quiero conservar</label>
+      <label class="check-label"><input type="checkbox" id="conReviews"> Reseñas o testimonios</label>
+    </div>
+    <div class="field">
+      <label>¿Qué servicios o productos quieres destacar?</label>
+      <textarea id="conServices" placeholder="Los que más vendes o los que más quieres promocionar"></textarea>
+    </div>
+    <div class="field">
+      <label>Reseñas o testimonios que quieras incluir (opcional)</label>
+      <textarea id="conTestimonials" placeholder="Ej: 'La mejor tienda del barrio — María' · Puedes copiarlas de Google"></textarea>
+    </div>
+    <div class="note">📎 Logo, fotos y archivos: mándalos por WhatsApp o email una vez envíes este formulario.</div>
+  </div>
+
+  <!-- 6. BRIEF -->
+  <div class="section">
+    <h2>Qué buscas conseguir</h2>
+    <div class="field">
+      <label>Objetivo principal de la web</label>
+      <select id="goal">
+        <option value="">Selecciona...</option>
+        <option>Más llamadas / contacto por WhatsApp</option>
+        <option>Más visitas a la tienda</option>
+        <option>Ventas online</option>
+        <option>Reservas o citas</option>
+        <option>Mejorar imagen de marca</option>
+        <option>Aparecer en Google por encima de mi competencia</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>¿Quién es tu cliente ideal?</label>
+      <textarea id="audience" placeholder="Edad aproximada, zona, qué buscan cuando entran a tu negocio..."></textarea>
+    </div>
+    <div class="field">
+      <label>¿Hay alguna web de competencia o referencia que te guste?</label>
+      <input type="text" id="competitors" placeholder="Ej: www.tiendaejemplo.com — me gusta cómo presentan sus productos">
+    </div>
+    <div class="field">
+      <label>¿Hay alguna fecha límite o evento importante?</label>
+      <input type="text" id="deadline" placeholder="Ej: antes de las rebajas de julio, apertura el 15 de agosto...">
+    </div>
+    <div class="field">
+      <label>¿Algo más que deba saber?</label>
+      <textarea id="extra" placeholder="Cualquier detalle que creas relevante"></textarea>
+    </div>
+  </div>
+
+  <button class="btn-main" onclick="generarResumen()">Generar resumen para enviar →</button>
+  <p class="error-msg" id="errorMsg">⚠️ El nombre del negocio es obligatorio.</p>
+
+  <!-- RESULTADO -->
+  <div class="result" id="result">
+    <h2>✅ Resumen listo — elige cómo enviarlo</h2>
+    <pre id="summaryText"></pre>
+    <div class="btn-row">
+      <button class="btn-wa" onclick="enviarWhatsapp()">📲 WhatsApp</button>
+      <button class="btn-email" onclick="enviarEmail()">✉️ Email</button>
+    </div>
+    <button class="btn-copy" onclick="copiarTexto()">Copiar texto</button>
+    <p class="copy-ok" id="copyOk"></p>
+  </div>
+
+</main>
+
+<footer>
+  <a href="https://alexpseo.com">alexpseo.com</a> · Diseño web y SEO local en Castelldefels
+</footer>
+
+<script>
+var ALEX_WHATSAPP = "34649403245";
+var ALEX_EMAIL    = "alexp.seomanager@gmail.com";
+var resumenFinal  = "";
+
+function v(id){ var el = document.getElementById(id); return el ? el.value.trim() : ""; }
+function c(id){ var el = document.getElementById(id); return el && el.checked ? "✓ Sí" : "✗ No"; }
+
+function generarResumen(){
+  var bizName = v("bizName");
+  if(!bizName){
+    document.getElementById("errorMsg").style.display = "block";
+    window.scrollTo({top:0, behavior:"smooth"});
+    return;
+  }
+  document.getElementById("errorMsg").style.display = "none";
+
+  resumenFinal =
+
+"ONBOARDING — " + bizName + "\n\n"+
+"📋 CONTACTO\n"+
+"Persona: "   + (v("contactName")  || "-") + "\n"+
+"Teléfono: "  + (v("contactPhone") || "-") + "\n"+
+"Email: "     + (v("contactEmail") || "-") + "\n\n"+
+"🏛️ DATOS LEGALES\n"+
+"Nombre fiscal: "    + (v("fiscalName")    || "-") + "\n"+
+"NIF/CIF: "          + (v("fiscalNif")     || "-") + "\n"+
+"Dirección fiscal: " + (v("fiscalAddress") || "-") + "\n\n"+
+"📍 LOCAL\n"+
+"Dirección pública: " + (v("address")         || "-") + "\n"+
+"Horario: "           + (v("hours")           || "-") + "\n"+
+"Web actual: "        + (v("currentWebsite")  || "Sin web") + "\n\n"+
+"🔑 ACCESOS\n"+
+"- Dominio: "              + c("accDomain")  + "\n"+
+"- Hosting: "              + c("accHosting") + "\n"+
+"- Google Business Profile: " + c("accGBP") + "\n"+
+"- Analytics / Search Console: " + c("accGA") + "\n"+
+"- Redes sociales: "       + c("accSocial")  + "\n"+
+"Redes (@usuario): "       + (v("socialHandles") || "-") + "\n"+
+"Notas accesos: "          + (v("accNotes")      || "-") + "\n\n"+
+"🖼️ CONTENIDO\n"+
+"- Logo en alta: "          + c("conLogo")    + "\n"+
+"- Fotos: "                 + c("conPhotos")  + "\n"+
+"- Textos a conservar: "    + c("conTexts")   + "\n"+
+"- Reseñas/testimonios: "   + c("conReviews") + "\n"+
+"Servicios a destacar: "    + (v("conServices")    || "-") + "\n"+
+"Testimonios: "             + (v("conTestimonials") || "-") + "\n\n"+
+"🎯 BRIEF\n"+
+"Objetivo: "          + (v("goal")        || "-") + "\n"+
+"Cliente ideal: "     + (v("audience")    || "-") + "\n"+
+"Referencias: "       + (v("competitors") || "-") + "\n"+
+"Fecha límite: "      + (v("deadline")    || "-") + "\n"+
+"Notas extra: "       + (v("extra")       || "-") + "\n\n"+
+
+"Enviado desde alexpseo.com/onboarding";
+
+  document.getElementById("summaryText").textContent = resumenFinal;
+  document.getElementById("result").style.display = "block";
+  document.getElementById("copyOk").textContent = "";
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
+}
+
+function enviarWhatsapp(){
+  window.open("https://wa.me/" + ALEX_WHATSAPP + "?text=" + encodeURIComponent(resumenFinal), "_blank");
+}
+
+function enviarEmail(){
+  var subject = encodeURIComponent("Datos de onboarding — " + v("bizName"));
+  var body    = encodeURIComponent(resumenFinal);
+  window.location.href = "mailto:" + ALEX_EMAIL + "?subject=" + subject + "&body=" + body;
+}
+
+function copiarTexto(){
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(resumenFinal).then(function(){
+      document.getElementById("copyOk").textContent = "Texto copiado ✓";
+    }).catch(fallback);
+  } else { fallback(); }
+}
+
+function fallback(){
+  var ta = document.createElement("textarea");
+  ta.value = resumenFinal;
+  ta.style.cssText = "position:fixed;opacity:0;";
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  try{ document.execCommand("copy"); document.getElementById("copyOk").textContent = "Texto copiado ✓"; }
+  catch(e){ document.getElementById("copyOk").textContent = "Selecciona el texto y cópialo manualmente."; }
+  document.body.removeChild(ta);
+}
+</script>
+
+</body>
+</html>
